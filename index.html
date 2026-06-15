@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <!-- 基本的な head 要素の設定 -->
+    <meta charset = "utf-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <title>Assignment 1: Question 1</title>
+
+    <!-- 課題の仕様には含まれていませんが、ページの見た目を整えるために CSS を使用 -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- スクリプトの読み込み -->
+    <script src="Scripts/runtimeValidationManager.js"></script>
+    <script src="Scripts/batchValidationManager.js"></script>
+    <script src="Scripts/nameValidator.js"></script>
+    <script src="Scripts/phoneNumberValidator.js"></script>
+    <script src="Scripts/birthdayValidator.js"></script>
+    <script src="Scripts/favoritePastimeValidator.js"></script>
+</head>
+<body>
+    <h1>Information Collector</h1>
+    <hr>
+
+    <h2>Please enter the following information below and click submit</h2>
+
+    <!-- GET と POST の使い分けについて:
+         一般的には個人情報の送信には POST の方が適していますが、
+         本フォームでは GET を採用しています。POST では入力値を次画面（"Hello ICT373 Student"）に
+         表示できないためです。
+         
+         送信先 URL が入力パラメータを表示する仕様であるため、本課題では GET を使用しています。
+         本番環境では POST の利用も検討できます -->
+    <form action="http://www.it.murdoch.edu.au/cgi-bin/reply1.pl" method = "get">        
+        <!-- 見た目を整えるための CSS クラス -->
+        <div class = "container">
+            <!-- 名前の入力欄 -->
+            <div>
+                <label for="name-input">Name:</label>
+                <input type="text" id="name-input" name ="user-name" required>
+            </div>
+
+            <!-- 以降の入力欄も同じ構成 -->
+            <div>
+                <label for="phone-number-input">Phone Number:</label>
+                <input type="text" id="phone-number-input" name ="user-phone-number" required>
+            </div>
+
+            <div>
+                <label for="birthday-day-input">Birthday Day:</label>
+                <input type="text" id="birthday-day-input" name ="user-birthday-day" required>
+            </div>
+
+            <div>
+                <label for="birthday-month-input">Birthday Month:</label>
+                <input type="text" id="birthday-month-input" name ="user-birthday-month" required>
+            </div>
+
+            <div>
+                <label for="birthday-year-input">Birthday Year:</label>
+                <input type="text" id="birthday-year-input" name ="user-birthday-year" required>
+            </div>
+
+            <div>
+                <label for="favorite-pastime-input">Favorite Pastime:</label>
+                <input type="text" id="favorite-pastime-input" name ="user-favorite-pastime" required>
+            </div>
+
+            <!-- フォーム全体の利用上の注意 -->
+            <h2>Usage Information:</h2>
+            <ul>
+                <li>Pleasure ensure all fields are filled in.</li>
+                <li>Please ensure the name field only contains English alphabet characters.</li>
+                <li>Pleasure ensure the phone number is a valid phone number.</li>
+                <li>Please ensure each birthday-related contains a number corresponding to the day, month, or year.</li>
+            </ul>
+
+            <!-- 電話番号の入力ルールが複雑なため、補足説明を記載 -->
+            <h3>Rules for Phone Numbers</h3>
+            <ul>
+                <li>Must only contain numbers unless otherwise specified by another rule.</li>
+                <li>A "+" symbol is valid only if it's at the start of the phone number.</li>
+                <li>A "-" symbol is valid only if it's not proceeded by another "-" symbol.</li>
+            </ul>
+
+            <!-- クリック時に processInputData() を呼び出す送信ボタン -->
+            <button type="submit" onclick="processInputData(event)"><b>Submit Information</b></button>
+        </div>
+    </form>
+</body>

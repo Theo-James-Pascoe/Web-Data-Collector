@@ -1,0 +1,62 @@
+.container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1
+{
+    text-align: center;
+    font-family: Verdana;
+}
+
+h2
+{
+    text-align: center;
+    font-family: Verdana;
+    color: blue;
+}
+
+h3
+{
+    text-align: center;
+    font-family: Verdana;
+    color: green;
+}
+
+label
+{
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-family: Verdana;
+}
+
+ul
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+    list-style-position: inside;
+    padding: 0;
+    font-family: Verdana;
+}
+
+li
+{
+    text-align: center;
+    margin: 10px;
+}
+
+button
+{
+    font-family: Verdana;
+    font-size: large;
+}
